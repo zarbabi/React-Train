@@ -1,12 +1,12 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import App  from "./App";
-
 import React from "react";
 import ReactDOM from "react-dom";
 import Test from "./App";
+import Fun from "./Fun";
+import Clss from "./Clss";
 
-ReactDOM.render(<Test />, document.getElementById("root"));
+//ReactDOM.render(<Fun />, document.getElementById("root"));
+ReactDOM.render(<Clss />, document.getElementById("root"));
+//ReactDOM.render(<Test />, document.getElementById("root"));
 
 //ReactDOM.render(<App />, document.getElementById("root"));
 

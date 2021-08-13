@@ -1,3 +1,4 @@
+
 //Component
 import React, { Component, useState } from "react";
 import TestCom from "./components/TestCom/TestCom";
@@ -8,7 +9,12 @@ const test = () => {
     <div className="container" id="title">
       <h1>"hello worlds"</h1>
       <p>iufosfo</p>
-      <TestCom />
+      <TestCom name="zahra" family="Arbabi" />
+      <TestCom name="z" family="zz">
+        "developer"
+      </TestCom>
+
+      
     </div>
   );
 };
@@ -47,8 +53,8 @@ export default test;
 //     ],
 //   };
 
-//   clickHandler = () => {
-//     console.log("hi");
+  // clickHandler = () => {
+  //   console.log("hi");
 //     this.setState({
 //       products: [
 //         { title: "react.js", price: "60$" },

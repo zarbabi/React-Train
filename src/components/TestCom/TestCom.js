@@ -1,8 +1,9 @@
-const TestCom = () => {
+const TestCom = (Props) => {
   return (
     <div>
-      <h1>test1</h1>
-      <p>test</p>
+      <h6>name : {Props.name}</h6>
+      <p>family : {Props.family}</p>
+      {Props.children}
     </div>
   );
 };
