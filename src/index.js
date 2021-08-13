@@ -4,6 +4,7 @@ import Test from "./App";
 import Fun from "./Fun";
 import Clss from "./Clss";
 
+import './index.css'
 //ReactDOM.render(<Fun />, document.getElementById("root"));
 ReactDOM.render(<Clss />, document.getElementById("root"));
 //ReactDOM.render(<Test />, document.getElementById("root"));

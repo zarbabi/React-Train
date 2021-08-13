@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Product from "./components/Product/Product";
-
+//import "./clss.css";
+import style from "./product.module.css";
 class ClssTest extends Component {
   state = {
     Products: [
@@ -21,7 +22,7 @@ class ClssTest extends Component {
 
   render() {
     return (
-      <div>
+      <div className={style.container}>
         <h1>"hello world!"</h1>
         {this.state.Products.map((product) => {
           return (
@@ -37,7 +38,9 @@ class ClssTest extends Component {
           <p>10% OFF</p>
         </Product>
 
-        <button onClick={this.clickHandler}>Save</button>
+        <button className={style.product} onClick={this.clickHandler}>
+          Save
+        </button>
       </div>
     );
   }
