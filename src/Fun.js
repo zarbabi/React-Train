@@ -46,7 +46,6 @@ const FunState = () => {
         //<HookObject />
       }
       <HookArry />
-      
     </div>
   );
 };

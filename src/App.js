@@ -1,9 +1,7 @@
-
 //Component
 import React, { Component, useState } from "react";
 import TestCom from "./components/TestCom/TestCom";
 //import Product from "./components/Product/Product";
-
 const test = () => {
   return (
     <div className="container" id="title">
@@ -14,7 +12,6 @@ const test = () => {
         "developer"
       </TestCom>
 
-      
     </div>
   );
 };
@@ -53,8 +50,8 @@ export default test;
 //     ],
 //   };
 
-  // clickHandler = () => {
-  //   console.log("hi");
+// clickHandler = () => {
+//   console.log("hi");
 //     this.setState({
 //       products: [
 //         { title: "react.js", price: "60$" },

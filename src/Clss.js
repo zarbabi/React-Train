@@ -8,16 +8,26 @@ class ClssTest extends Component {
       { title: "java", price: "100$", id: 1 },
       { title: "html", price: "60$", id: 2 },
     ],
+    count: 0,
   };
 
-  clickHandler = () => {
+  clickHandler = (newTitle) => {
     // console.log("Hello");
     this.setState({
       Products: [
         { title: "java", price: "20$", id: 1 },
-        { title: "html", price: "30$", id: 2 },
+        { title: newTitle, price: "30$", id: 2 },
       ],
     });
+  };
+
+  // constructor(props){
+  //   super(props);
+  //   this.countHandler = this.countHandler.bind(this)
+  // }
+  countHandler = (id) => {
+    console.log("count clicked", id);
+    this.setState({ count: this.state.count + 1 });
   };
 
   render() {
@@ -30,6 +40,7 @@ class ClssTest extends Component {
               name={product.title}
               price={product.price}
               key={product.id}
+              click={() => this.clickHandler("js")}
             />
           );
         })}
@@ -40,6 +51,10 @@ class ClssTest extends Component {
 
         <button className={style.product} onClick={this.clickHandler}>
           Save
+        </button>
+
+        <button className={style.product} onClick={() => this.countHandler(3)}>
+          count : {this.state.count}
         </button>
       </div>
     );
