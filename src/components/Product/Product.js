@@ -9,9 +9,14 @@ const Product = (Props) => {
       <h5>products price : {Props.product.price}</h5>
       {Props.children}
       <span className={style.value}> {Props.product.quantity}</span>
-      <button className={`${style.button} ${style.inc}`} onClick={Props.onAdd}>
-        Add
+      <button
+        className={`${style.button} ${style.inc}`}
+        onClick={Props.onIncerement}
+      >
+        Increment
       </button>
+
+      <button className={style.button} onClick={Props.onDecrement}>Decrement</button>
       <button className={style.button} onClick={Props.onDel}>
         delete
       </button>

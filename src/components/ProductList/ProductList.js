@@ -24,9 +24,20 @@ class ProductList extends Component {
     this.setState({ prod: filterProd });
   };
 
-  addHandler = (id) => {
-    const findProd = this.state.prod.find((p) => p.id === id);
-    this.setState({ prod: findProd });
+  incHandler = (id) => {
+    //console.log(id);
+    const prod = [...this.state.prod];
+
+    const findProd = prod.find((p) => p.id === id);
+    findProd.quantity++;
+    this.setState({ prod: prod });
+  };
+
+  decHandler = (id) => {
+    const prod = [...this.state.prod];
+    const findProd = prod.find((p) => p.id === id);
+    findProd.quantity--;
+    this.setState({ prod: prod });
   };
   render() {
     return (
@@ -41,7 +52,8 @@ class ProductList extends Component {
               key={prod.id}
               // click={() => this.clickH("C++")}
               onDel={() => this.delHandler(prod.id)}
-              onAdd={() => this.addHandler(prod.id)}
+              onIncerement={() => this.incHandler(prod.id)}
+              onDecrement={() => this.decHandler(prod.id)}
             />
           );
         })}
