@@ -1,13 +1,20 @@
 import React from "react";
 //import "../../product.css";
 import style from "../../product.module.css";
+
 const Product = (Props) => {
   return (
-    <div className={style.product} /*onClick={Props.click}*/ >
-      <h4>products name : {Props.name}</h4>
-      <h5>products price : {Props.price}</h5>
+    <div className={style.product} /*onClick={Props.click}*/>
+      <h4>products name : {Props.product.name}</h4>
+      <h5>products price : {Props.product.price}</h5>
       {Props.children}
-      <button onClick={Props.click}>delete</button>
+      <span className={style.value}> {Props.product.quantity}</span>
+      <button className={`${style.button} ${style.inc}`} onClick={Props.onAdd}>
+        Add
+      </button>
+      <button className={style.button} onClick={Props.onDel}>
+        delete
+      </button>
     </div>
   );
 };
