@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Test from "./App";
-import Fun from "./Fun";
-import Clss from "./Clss";
-
+//import Test from "./App";
+//import Fun from "./Fun";
+//import Clss from "./Clss";
+import App from "./App";
 import "./index.css";
 //ReactDOM.render(<Fun />, document.getElementById("root"));
-ReactDOM.render(<Clss />, document.getElementById("root"));
+//ReactDOM.render(<Clss />, document.getElementById("root"));
 //ReactDOM.render(<Test />, document.getElementById("root"));
 
-//ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
 
 // //////////////////////////////
 // first app

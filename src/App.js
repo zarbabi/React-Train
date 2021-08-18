@@ -1,17 +1,20 @@
 //Component
-import React, { Component, useState } from "react";
-import TestCom from "./components/TestCom/TestCom";
+import React from "react";
+//, { Component, useState } 
+//import TestCom from "./components/TestCom/TestCom";
+import ProductList from "./components/ProductList/ProductList";
 //import Product from "./components/Product/Product";
 const test = () => {
   return (
     <div className="container" id="title">
       <h1>"hello worlds"</h1>
       <p>iufosfo</p>
-      <TestCom name="zahra" family="Arbabi" />
+      {/* <TestCom name="zahra" family="Arbabi" />
       <TestCom name="z" family="zz">
         "developer"
-      </TestCom>
+      </TestCom> */}
 
+      <ProductList />
     </div>
   );
 };
