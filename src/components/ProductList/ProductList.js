@@ -18,6 +18,11 @@ class ProductList extends Component {
     });
   };
 
+  delHandler = (id) => {
+    console.log("id :", { id });
+    const filterProd = this.state.prod.filter((t) => t.id !== id);
+    this.setState({ prod: filterProd });
+  };
   render() {
     return (
       <div>
@@ -27,7 +32,8 @@ class ProductList extends Component {
               name={prod.title}
               price={prod.price}
               key={prod.id}
-              click={() => this.clickH("C++")}
+              // click={() => this.clickH("C++")}
+              click={() => this.delHandler(prod.id)}
             />
           );
         })}
