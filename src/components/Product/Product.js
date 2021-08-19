@@ -22,8 +22,13 @@ const Product = (Props) => {
         +
       </button>
 
-      <button className={style.button} onClick={Props.onDecrement}>
-        {Props.product.quantity > 1 ? "-" :<BiTrash/>}
+      <button
+        className={`${style.button} ${
+          Props.product.quantity === 1 && style.remove
+        }`}
+        onClick={Props.onDecrement}
+      >
+        {Props.product.quantity > 1 ? "-" : <BiTrash />}
       </button>
       <button className={style.button} onClick={Props.onDel}>
         delete
