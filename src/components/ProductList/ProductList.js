@@ -36,8 +36,14 @@ class ProductList extends Component {
   decHandler = (id) => {
     const prod = [...this.state.prod];
     const findProd = prod.find((p) => p.id === id);
-    findProd.quantity--;
-    this.setState({ prod: prod });
+
+    if (findProd.quantity <= 1) {
+      const filterProd = this.state.prod.filter((p) => p.id !== id);
+      this.setState({ prod: filterProd });
+    } else {
+      findProd.quantity--;
+      this.setState({ prod });
+    }
   };
 
   changeHandler = (event, id) => {

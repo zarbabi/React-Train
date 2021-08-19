@@ -19,11 +19,11 @@ const Product = (Props) => {
         className={`${style.button} ${style.inc}`}
         onClick={Props.onIncerement}
       >
-        Increment
+        +
       </button>
 
       <button className={style.button} onClick={Props.onDecrement}>
-        Decrement
+        -
       </button>
       <button className={style.button} onClick={Props.onDel}>
         delete
