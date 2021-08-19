@@ -72,7 +72,16 @@ class ProductList extends Component {
     });
   };
   render() {
-    return <div>{this.renderHandel()}</div>;
+    return (
+      <div>
+        {!this.state.prod.length ? (
+          <div> no Product</div>
+        ) : (
+          <div> welcome back!</div>
+        )}
+        {this.renderHandel()}
+      </div>
+    );
   }
 }
 
