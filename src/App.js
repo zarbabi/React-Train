@@ -7,25 +7,74 @@ import ProductList from "./components/ProductList/ProductList";
 import NavBar from "./components/NavBar/NavBar";
 //import Product from "./components/Product/Product";
 class App extends Component {
+  state = {
+    prod: [
+      { title: "j", price: "100$", id: "1", quantity: "1" },
+      { title: "c", price: "87$", id: "3", quantity: "3" },
+    ],
+  };
 
+  clickH = (NewT) => {
+    this.setState({
+      prod: [
+        { title: "jj", price: "90$", id: "1" },
+        { title: NewT, price: "77$", id: "3" },
+      ],
+    });
+  };
 
+  delHandler = (id) => {
+    console.log("id :", { id });
+    const filterProd = this.state.prod.filter((t) => t.id !== id);
+    this.setState({ prod: filterProd });
+  };
+
+  incHandler = (id) => {
+    //console.log(id);
+    const prod = [...this.state.prod];
+
+    const findProd = prod.find((p) => p.id === id);
+    findProd.quantity++;
+    this.setState({ prod: prod });
+  };
+
+  decHandler = (id) => {
+    const prod = [...this.state.prod];
+    const findProd = prod.find((p) => p.id === id);
+
+    if (findProd.quantity <= 1) {
+      const filterProd = this.state.prod.filter((p) => p.id !== id);
+      this.setState({ prod: filterProd });
+    } else {
+      findProd.quantity--;
+      this.setState({ prod });
+    }
+  };
+
+  changeHandler = (event, id) => {
+    const prod = [...this.state.prod];
+    const findProd = prod.find((p) => p.id === id);
+    findProd.title = event.target.value;
+    this.setState({ prod });
+  };
   render() {
     return (
       <div className={style.container} id="title">
-        {/* <h1>"hello worlds"</h1> */}
-        <h3>Shoping List</h3>
-        {/* <TestCom name="zahra" family="Arbabi" />
-      <TestCom name="z" family="zz">
-        "developer"
-      </TestCom> */}
-        <NavBar />
-        <ProductList />
+        <NavBar totalItems={this.state.prod.length} />
+        <ProductList
+          prod={this.state.prod}
+          onDel={this.delHandler}
+          onIncerement={this.incHandler}
+          onDecrement={this.decHandler}
+          onChange={this.changeHandler}
+        />
       </div>
     );
   }
 }
 
 export default App;
+
 // const App = () => {
 //   const [products, setproducts] = useState([
 //     { title: "react.js", price: "77$" },
