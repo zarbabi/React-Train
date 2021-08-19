@@ -52,9 +52,9 @@ class ProductList extends Component {
     findProd.title = event.target.value;
     this.setState({ prod });
   };
-  renderHandel () => {
+  // renderHandel () => {
     
-  }
+  // }
   render() {
     if (this.state.prod.length === 0) return <div>there is no ptoduct</div>;
     return (
