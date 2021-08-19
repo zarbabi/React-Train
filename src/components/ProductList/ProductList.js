@@ -37,7 +37,6 @@ class ProductList extends Component {
     const prod = [...this.state.prod];
     const findProd = prod.find((p) => p.id === id);
 
-    
     if (findProd.quantity <= 1) {
       const filterProd = this.state.prod.filter((p) => p.id !== id);
       this.setState({ prod: filterProd });

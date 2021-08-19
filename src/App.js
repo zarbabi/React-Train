@@ -1,26 +1,31 @@
 //Component
-import React from "react";
+import React, { Component } from "react";
 //, { Component, useState }
 //import TestCom from "./components/TestCom/TestCom";
 import style from "./product.module.css";
 import ProductList from "./components/ProductList/ProductList";
+import NavBar from "./components/NavBar/NavBar";
 //import Product from "./components/Product/Product";
-const test = () => {
-  return (
-    <div className={style.container} id="title">
-      {/* <h1>"hello worlds"</h1> */}
-      <h3>Shoping List</h3>
-      {/* <TestCom name="zahra" family="Arbabi" />
+class App extends Component {
+
+
+  render() {
+    return (
+      <div className={style.container} id="title">
+        {/* <h1>"hello worlds"</h1> */}
+        <h3>Shoping List</h3>
+        {/* <TestCom name="zahra" family="Arbabi" />
       <TestCom name="z" family="zz">
         "developer"
       </TestCom> */}
+        <NavBar />
+        <ProductList />
+      </div>
+    );
+  }
+}
 
-      <ProductList />
-    </div>
-  );
-};
-
-export default test;
+export default App;
 // const App = () => {
 //   const [products, setproducts] = useState([
 //     { title: "react.js", price: "77$" },
