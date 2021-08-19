@@ -52,31 +52,27 @@ class ProductList extends Component {
     findProd.title = event.target.value;
     this.setState({ prod });
   };
-  // renderHandel () => {
-    
-  // }
-  render() {
+  renderHandel = () => {
     if (this.state.prod.length === 0) return <div>there is no ptoduct</div>;
-    return (
-      <div>
-        {this.state.prod.map((prod) => {
-          return (
-            <Product
-              // name={prod.title}
-              // price={prod.price}
-              // quantity={prod.quantity}
-              product={prod}
-              key={prod.id}
-              // click={() => this.clickH("C++")}
-              onDel={() => this.delHandler(prod.id)}
-              onIncerement={() => this.incHandler(prod.id)}
-              onDecrement={() => this.decHandler(prod.id)}
-              onChange={(e) => this.changeHandler(e, prod.id)}
-            />
-          );
-        })}
-      </div>
-    );
+    return this.state.prod.map((prod) => {
+      return (
+        <Product
+          // name={prod.title}
+          // price={prod.price}
+          // quantity={prod.quantity}
+          product={prod}
+          key={prod.id}
+          // click={() => this.clickH("C++")}
+          onDel={() => this.delHandler(prod.id)}
+          onIncerement={() => this.incHandler(prod.id)}
+          onDecrement={() => this.decHandler(prod.id)}
+          onChange={(e) => this.changeHandler(e, prod.id)}
+        />
+      );
+    });
+  };
+  render() {
+    return <div>{this.renderHandel()}</div>;
   }
 }
 
