@@ -64,9 +64,17 @@ class App extends Component {
   };
 
   componentDidMount() {
-    console.log("app.js componentDidMount");
+    console.log("App.js componentDidMount");
     //ajax
     //products => this.setState({prod})
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("App.js componentDidUpdate");
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return true;
   }
   render() {
     console.log("App.js render");
