@@ -13,11 +13,10 @@ class App extends Component {
   }
 
   state = {
-    prod: [
+    products: [
       { title: "j", price: "100$", id: "1", quantity: "1" },
       { title: "c", price: "87$", id: "3", quantity: "3" },
     ],
-    count:0,
   };
 
   clickH = (NewT) => {
@@ -31,25 +30,30 @@ class App extends Component {
 
   delHandler = (id) => {
     console.log("id :", { id });
-    const filterProd = this.state.prod.filter((t) => t.id !== id);
+    const filterProd = this.state.products.filter((t) => t.id !== id);
     this.setState({ prod: filterProd });
   };
 
   incHandler = (id) => {
-    //console.log(id);
-    const prod = [...this.state.prod];
+    //1. id => ok
+    //2. index
+    const index = this.state.products.findIndex((item) => item.id === id);
+    console.log(index);
+    //3. clone the selected index and update the quantity
+    const product = { ...this.state.products[index] };
+    product.quantity++;
 
-    const findProd = prod.find((p) => p.id === id);
-    findProd.quantity++;
-    this.setState({ prod: prod });
+    const products = [...this.state.products];
+    products[index] = product;
+    this.setState({ products: products });
   };
 
   decHandler = (id) => {
-    const prod = [...this.state.prod];
+    const prod = [...this.state.products];
     const findProd = prod.find((p) => p.id === id);
 
     if (findProd.quantity <= 1) {
-      const filterProd = this.state.prod.filter((p) => p.id !== id);
+      const filterProd = this.state.products.filter((p) => p.id !== id);
       this.setState({ prod: filterProd });
     } else {
       findProd.quantity--;
@@ -58,7 +62,7 @@ class App extends Component {
   };
 
   changeHandler = (event, id) => {
-    const prod = [...this.state.prod];
+    const prod = [...this.state.products];
     const findProd = prod.find((p) => p.id === id);
     findProd.title = event.target.value;
     this.setState({ prod });
@@ -72,7 +76,7 @@ class App extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     console.log("App.js componentDidUpdate");
-    console.log(prevState.count);
+    console.log(prevState);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -82,15 +86,14 @@ class App extends Component {
     console.log("App.js render");
     return (
       <div className={style.container} id="title">
-        <button onClick={()=>this.setState({count: this.state.count+1})}>count : {this.state.count}</button>
-        {/* <NavBar totalItems={this.state.prod.length} />
+        <NavBar totalItems={this.state.products.length} />
         <ProductList
-          prod={this.state.prod}
+          prod={this.state.products}
           onDel={this.delHandler}
           onIncerement={this.incHandler}
           onDecrement={this.decHandler}
           onChange={this.changeHandler}
-        /> */}
+        />
       </div>
     );
   }
