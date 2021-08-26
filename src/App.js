@@ -7,6 +7,11 @@ import ProductList from "./components/ProductList/ProductList";
 import NavBar from "./components/NavBar/NavBar";
 //import Product from "./components/Product/Product";
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log("app.js constructor");
+  }
+
   state = {
     prod: [
       { title: "j", price: "100$", id: "1", quantity: "1" },
@@ -57,7 +62,14 @@ class App extends Component {
     findProd.title = event.target.value;
     this.setState({ prod });
   };
+
+  componentDidMount() {
+    console.log("app.js componentDidMount");
+    //ajax
+    //products => this.setState({prod})
+  }
   render() {
+    console.log("App.js render");
     return (
       <div className={style.container} id="title">
         <NavBar totalItems={this.state.prod.length} />

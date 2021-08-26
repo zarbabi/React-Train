@@ -4,6 +4,8 @@ import style from "../../product.module.css";
 import { BiTrash } from "react-icons/bi";
 const Product = ({product, onChange, onIncerement, onDecrement, onDel}) => {
   //product, onChange,onIncerement,onDecrement,onDel
+
+  console.log("Product.js render");
   return (
     <div className={style.product} /*onClick={click}*/>
       <h4>products name : {product.title}</h4>

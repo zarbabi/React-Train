@@ -24,6 +24,7 @@ class ProductList extends Component {
     });
   };
   render() {
+    console.log("ProductList.js render");
     const { prod } = this.props;
     return (
       <div>
