@@ -10,7 +10,7 @@ class ProductList extends Component {
   renderHandel = () => {
     const { prod, onChange, onIncerement, onDecrement, onDel } = this.props;
 
-    if (prod.length === 0) return <div>there is no ptoduct</div>;
+    if (prod.length === 0) return <div>there is no product</div>;
     return prod.map((prod) => {
       return (
         <Product
