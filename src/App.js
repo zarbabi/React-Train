@@ -77,10 +77,16 @@ class App extends Component {
   };
 
   changeHandler = (event, id) => {
-    const prod = [...this.state.products];
-    const findProd = prod.find((p) => p.id === id);
-    findProd.title = event.target.value;
-    this.setState({ prod });
+    const index = this.state.products.findIndex((item) => item.id === id);
+    const product = { ...this.state.products[index] };
+    product.title = event.target.value;
+    const products = [...this.state.products];
+    products[index] = product;
+    this.setState({ products });
+    // const prod = [...this.state.products];
+    // const findProd = prod.find((p) => p.id === id);
+    // findProd.title = event.target.value;
+    // this.setState({ prod });
   };
 
   componentDidMount() {
