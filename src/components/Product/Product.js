@@ -1,9 +1,14 @@
-import React,{ Component} from "react";
+import React, { Component } from "react";
 //import "../../product.css";
 import style from "../../product.module.css";
 import { BiTrash } from "react-icons/bi";
 
 class Product extends Component {
+  //WARNING! To be deprecated in React v17. Use componentDidUpdate instead.
+  componentWillUnmount() {
+    console.log("Product.js componentWillUnmount");
+  }
+
   render() {
     console.log("Product.js render");
     const { product, onChange, onIncerement, onDecrement, onDel } = this.props;
