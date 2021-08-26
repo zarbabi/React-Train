@@ -17,6 +17,7 @@ class App extends Component {
       { title: "j", price: "100$", id: "1", quantity: "1" },
       { title: "c", price: "87$", id: "3", quantity: "3" },
     ],
+    count:0,
   };
 
   clickH = (NewT) => {
@@ -71,6 +72,7 @@ class App extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     console.log("App.js componentDidUpdate");
+    console.log(prevState.count);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -80,14 +82,15 @@ class App extends Component {
     console.log("App.js render");
     return (
       <div className={style.container} id="title">
-        <NavBar totalItems={this.state.prod.length} />
+        <button onClick={()=>this.setState({count: this.state.count+1})}>count : {this.state.count}</button>
+        {/* <NavBar totalItems={this.state.prod.length} />
         <ProductList
           prod={this.state.prod}
           onDel={this.delHandler}
           onIncerement={this.incHandler}
           onDecrement={this.decHandler}
           onChange={this.changeHandler}
-        />
+        /> */}
       </div>
     );
   }
