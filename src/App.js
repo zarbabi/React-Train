@@ -13,6 +13,7 @@ import Wrapper from "./components/hoc/Wrapper";
 import "./App.css";
 import ClickCounter from "./components/hocExample/ClickCounter";
 import HoverCounter from "./components/hocExample/HoverCounter";
+import ParentComp from "./components/PureMemoComp/ParentComp";
 //import Product from "./components/Product/Product";
 class App extends Component {
   constructor(props) {
@@ -118,8 +119,9 @@ class App extends Component {
     return (
       // <div className={style.container} id="title">
       <>
-        <ClickCounter name="zahra" />
-        <HoverCounter />
+        <ParentComp />
+        {/* <ClickCounter name="zahra" />
+        <HoverCounter /> */}
         {/* <button onClick={() => this.setState({ isShow: !this.state.isShow })}>
           {this.state.isShow ? "hide" : "show"}
         </button>
