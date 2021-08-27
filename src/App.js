@@ -14,6 +14,7 @@ import "./App.css";
 import ClickCounter from "./components/hocExample/ClickCounter";
 import HoverCounter from "./components/hocExample/HoverCounter";
 import ParentComp from "./components/PureMemoComp/ParentComp";
+import ClassRef from "./components/ref/ClassRef";
 //import Product from "./components/Product/Product";
 class App extends Component {
   constructor(props) {
@@ -119,7 +120,7 @@ class App extends Component {
     return (
       // <div className={style.container} id="title">
       <>
-        <ParentComp />
+        <ClassRef />
         {/* <ClickCounter name="zahra" />
         <HoverCounter /> */}
         {/* <button onClick={() => this.setState({ isShow: !this.state.isShow })}>
@@ -136,8 +137,6 @@ class App extends Component {
           onDecrement={this.decHandler}
           onChange={this.changeHandler}
         /> */}
-        {/* <ClassCounter /> */}
-        {/* <FunctionalCounter /> */}
       </>
       // </div>
     );
