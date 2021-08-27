@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import style from "./product.module.css";
 import ProductList from "./components/ProductList/ProductList";
 import NavBar from "./components/NavBar/NavBar";
+import ClassCounter from "./components/ClassCounter";
 //import Product from "./components/Product/Product";
 class App extends Component {
   constructor(props) {
@@ -107,14 +108,15 @@ class App extends Component {
     console.log("App.js render");
     return (
       <div className={style.container} id="title">
-        <NavBar totalItems={this.state.products.length} />
+        {/* <NavBar totalItems={this.state.products.length} />
         <ProductList
           prod={this.state.products}
           onDel={this.delHandler}
           onIncerement={this.incHandler}
           onDecrement={this.decHandler}
           onChange={this.changeHandler}
-        />
+        /> */}
+        <ClassCounter />
       </div>
     );
   }
