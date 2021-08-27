@@ -7,6 +7,7 @@ import ProductList from "./components/ProductList/ProductList";
 import NavBar from "./components/NavBar/NavBar";
 import ClassCounter from "./components/ClassCounter";
 import FunctionalCounter from "./components/FunctionalCounter";
+import ClassTimer from "./components/ClassTimer";
 //import Product from "./components/Product/Product";
 class App extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class App extends Component {
       { title: "j", price: "100$", id: "1", quantity: "1" },
       { title: "c", price: "87$", id: "3", quantity: "3" },
     ],
+    isShow: true,
   };
 
   clickH = (NewT) => {
@@ -109,6 +111,12 @@ class App extends Component {
     console.log("App.js render");
     return (
       <div className={style.container} id="title">
+        <button onClick={() => this.setState({ isShow: !this.state.isShow })}>
+          {this.state.isShow ? "hide" : "show"}
+        </button>
+
+        {this.state.isShow && <ClassTimer />}
+
         {/* <NavBar totalItems={this.state.products.length} />
         <ProductList
           prod={this.state.products}
@@ -118,7 +126,7 @@ class App extends Component {
           onChange={this.changeHandler}
         /> */}
         {/* <ClassCounter /> */}
-        <FunctionalCounter />
+        {/* <FunctionalCounter /> */}
       </div>
     );
   }
