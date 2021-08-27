@@ -6,6 +6,7 @@ import style from "./product.module.css";
 import ProductList from "./components/ProductList/ProductList";
 import NavBar from "./components/NavBar/NavBar";
 import ClassCounter from "./components/ClassCounter";
+import FunctionalCounter from "./components/FunctionalCounter";
 //import Product from "./components/Product/Product";
 class App extends Component {
   constructor(props) {
@@ -116,7 +117,8 @@ class App extends Component {
           onDecrement={this.decHandler}
           onChange={this.changeHandler}
         /> */}
-        <ClassCounter />
+        {/* <ClassCounter /> */}
+        <FunctionalCounter />
       </div>
     );
   }
