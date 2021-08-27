@@ -1,27 +1,26 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const UserRefExamples = () => {
   const [inputValue, setInputValue] = useState("");
-  const inputRef = useRef();
-
-  const resetHandler = () => {
-    setInputValue("");
-    inputRef.current.focus();
-  };
+  const previousValue = useRef();
 
   const changeHandler = (e) => {
     setInputValue(e.target.value);
   };
+  console.log("re-render", inputValue);
+  console.log("Prev-value", previousValue.current);
+
+  useEffect(() => {
+    previousValue.current = inputValue;
+    console.log("useEffect", previousValue.current);
+  }, [inputValue]);
 
   return (
     <div>
-      <input
-        ref={inputRef}
-        type="text"
-        value={inputValue}
-        onChange={changeHandler}
-      />
-      <button onClick={resetHandler}>Reset</button>
+      <input type="text" value={inputValue} onChange={changeHandler} />
+      <p>
+        my name is {inputValue} and it used to be {previousValue.current}
+      </p>
     </div>
   );
 };
