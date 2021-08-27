@@ -9,6 +9,7 @@ import ClassCounter from "./components/ClassCounter";
 import FunctionalCounter from "./components/FunctionalCounter";
 import ClassTimer from "./components/ClassTimer";
 import FunctionalTimer from "./components/FunctionalTimer";
+import Wrapper from "./components/hoc/Wrapper";
 //import Product from "./components/Product/Product";
 class App extends Component {
   constructor(props) {
@@ -111,24 +112,26 @@ class App extends Component {
   render() {
     console.log("App.js render");
     return (
-      <div className={style.container} id="title">
-        <button onClick={() => this.setState({ isShow: !this.state.isShow })}>
+      // <div className={style.container} id="title">
+      <Wrapper class="container">
+        {/* <button onClick={() => this.setState({ isShow: !this.state.isShow })}>
           {this.state.isShow ? "hide" : "show"}
         </button>
-        {this.state.isShow && <FunctionalTimer />}
+        {this.state.isShow && <FunctionalTimer />} */}
         {/* {this.state.isShow && <ClassTimer />} */}
 
-        {/* <NavBar totalItems={this.state.products.length} />
+        <NavBar totalItems={this.state.products.length} />
         <ProductList
           prod={this.state.products}
           onDel={this.delHandler}
           onIncerement={this.incHandler}
           onDecrement={this.decHandler}
           onChange={this.changeHandler}
-        /> */}
+        />
         {/* <ClassCounter /> */}
         {/* <FunctionalCounter /> */}
-      </div>
+      </Wrapper>
+      // </div>
     );
   }
 }
