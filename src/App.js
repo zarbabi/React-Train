@@ -11,6 +11,8 @@ import ClassTimer from "./components/ClassTimer";
 import FunctionalTimer from "./components/FunctionalTimer";
 import Wrapper from "./components/hoc/Wrapper";
 import "./App.css";
+import ClickCounter from "./components/hocExample/ClickCounter";
+import HoverCounter from "./components/hocExample/HoverCounter";
 //import Product from "./components/Product/Product";
 class App extends Component {
   constructor(props) {
@@ -116,20 +118,22 @@ class App extends Component {
     return (
       // <div className={style.container} id="title">
       <>
+        <ClickCounter name="zahra" />
+        <HoverCounter />
         {/* <button onClick={() => this.setState({ isShow: !this.state.isShow })}>
           {this.state.isShow ? "hide" : "show"}
         </button>
         {this.state.isShow && <FunctionalTimer />} */}
         {/* {this.state.isShow && <ClassTimer />} */}
 
-        <NavBar totalItems={this.state.products.length} />
+        {/* <NavBar totalItems={this.state.products.length} />
         <ProductList
           prod={this.state.products}
           onDel={this.delHandler}
           onIncerement={this.incHandler}
           onDecrement={this.decHandler}
           onChange={this.changeHandler}
-        />
+        /> */}
         {/* <ClassCounter /> */}
         {/* <FunctionalCounter /> */}
       </>
@@ -138,7 +142,7 @@ class App extends Component {
   }
 }
 
-export default Wrapper(App, "container");
+export default App;
 
 // const App = () => {
 //   const [products, setproducts] = useState([
