@@ -9,7 +9,7 @@ import "./index.css";
 //ReactDOM.render(<Clss />, document.getElementById("root"));
 //ReactDOM.render(<Test />, document.getElementById("root"));
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App name="zahra" />, document.getElementById("root"));
 
 // //////////////////////////////
 // first app

@@ -10,6 +10,7 @@ import FunctionalCounter from "./components/FunctionalCounter";
 import ClassTimer from "./components/ClassTimer";
 import FunctionalTimer from "./components/FunctionalTimer";
 import Wrapper from "./components/hoc/Wrapper";
+import "./App.css";
 //import Product from "./components/Product/Product";
 class App extends Component {
   constructor(props) {
@@ -111,9 +112,10 @@ class App extends Component {
   }
   render() {
     console.log("App.js render");
+    console.log(this.props);
     return (
       // <div className={style.container} id="title">
-      <Wrapper class="container">
+      <>
         {/* <button onClick={() => this.setState({ isShow: !this.state.isShow })}>
           {this.state.isShow ? "hide" : "show"}
         </button>
@@ -130,13 +132,13 @@ class App extends Component {
         />
         {/* <ClassCounter /> */}
         {/* <FunctionalCounter /> */}
-      </Wrapper>
+      </>
       // </div>
     );
   }
 }
 
-export default App;
+export default Wrapper(App, "container");
 
 // const App = () => {
 //   const [products, setproducts] = useState([
