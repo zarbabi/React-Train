@@ -8,6 +8,7 @@ import NavBar from "./components/NavBar/NavBar";
 import ClassCounter from "./components/ClassCounter";
 import FunctionalCounter from "./components/FunctionalCounter";
 import ClassTimer from "./components/ClassTimer";
+import FunctionalTimer from "./components/FunctionalTimer";
 //import Product from "./components/Product/Product";
 class App extends Component {
   constructor(props) {
@@ -114,8 +115,8 @@ class App extends Component {
         <button onClick={() => this.setState({ isShow: !this.state.isShow })}>
           {this.state.isShow ? "hide" : "show"}
         </button>
-
-        {this.state.isShow && <ClassTimer />}
+        {this.state.isShow && <FunctionalTimer />}
+        {/* {this.state.isShow && <ClassTimer />} */}
 
         {/* <NavBar totalItems={this.state.products.length} />
         <ProductList
