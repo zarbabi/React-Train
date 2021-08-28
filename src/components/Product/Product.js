@@ -2,7 +2,8 @@ import React, { Component } from "react";
 //import "../../product.css";
 import style from "../../product.module.css";
 import { BiTrash } from "react-icons/bi";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { UserContext, WebsiteContext } from "../../App";
 const Product = ({ product, onChange, onIncerement, onDecrement, onDel }) => {
   //product, onChange,onIncerement,onDecrement,onDel
 
@@ -14,6 +15,11 @@ const Product = ({ product, onChange, onIncerement, onDecrement, onDel }) => {
       console.log("Product.js CWUM");
     };
   }, []);
+
+  const user = useContext(UserContext);
+  const website = useContext(WebsiteContext);
+  console.log(user, website);
+
   return (
     <div className={style.product} /*onClick={click}*/>
       <h4>products name : {product.title}</h4>

@@ -17,6 +17,10 @@ import ParentComp from "./components/PureMemoComp/ParentComp";
 import ClassRef from "./components/ref/ClassRef";
 import FunctionalRef from "./components/ref/FunctionalRef";
 import UseRef from "./components/ref/useRef";
+
+export const UserContext = React.createContext();
+
+export const WebsiteContext = React.createContext();
 //import Product from "./components/Product/Product";
 class App extends Component {
   constructor(props) {
@@ -122,7 +126,7 @@ class App extends Component {
     return (
       // <div className={style.container} id="title">
       <>
-        <UseRef />
+        {/* <UseRef /> */}
         {/* <ClickCounter name="zahra" />
         <HoverCounter /> */}
         {/* <button onClick={() => this.setState({ isShow: !this.state.isShow })}>
@@ -130,15 +134,18 @@ class App extends Component {
         </button>
         {this.state.isShow && <FunctionalTimer />} */}
         {/* {this.state.isShow && <ClassTimer />} */}
-
-        {/* <NavBar totalItems={this.state.products.length} />
-        <ProductList
-          prod={this.state.products}
-          onDel={this.delHandler}
-          onIncerement={this.incHandler}
-          onDecrement={this.decHandler}
-          onChange={this.changeHandler}
-        /> */}
+        <WebsiteContext.Provider value="example.com">
+          <UserContext.Provider value="zahra">
+            <NavBar totalItems={this.state.products.length} />
+            <ProductList
+              prod={this.state.products}
+              onDel={this.delHandler}
+              onIncerement={this.incHandler}
+              onDecrement={this.decHandler}
+              onChange={this.changeHandler}
+            />
+          </UserContext.Provider>
+        </WebsiteContext.Provider>
       </>
       // </div>
     );

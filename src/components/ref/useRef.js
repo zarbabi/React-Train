@@ -6,6 +6,7 @@ const UserRefExamples = () => {
   const previousValue = useRef();
   const previousCount = useRef();
 
+  
   const changeHandler = (e) => {
     setInputValue(e.target.value);
   };
@@ -16,7 +17,7 @@ const UserRefExamples = () => {
 
   useEffect(() => {
     previousCount.current = count;
-  });
+  }, [count]);
   return (
     <div>
       <input type="text" value={inputValue} onChange={changeHandler} />
