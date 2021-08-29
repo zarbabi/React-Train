@@ -80,17 +80,6 @@ class App extends Component {
       products[index] = product;
       this.setState({ products });
     }
-
-    // const prod = [...this.state.products];
-    // const findProd = prod.find((p) => p.id === id);
-
-    // if (findProd.quantity <= 1) {
-    //   const filterProd = this.state.products.filter((p) => p.id !== id);
-    //   this.setState({ prod: filterProd });
-    // } else {
-    //   findProd.quantity--;
-    //   this.setState({ prod });
-    // }
   };
 
   changeHandler = (event, id) => {
@@ -100,10 +89,6 @@ class App extends Component {
     const products = [...this.state.products];
     products[index] = product;
     this.setState({ products });
-    // const prod = [...this.state.products];
-    // const findProd = prod.find((p) => p.id === id);
-    // findProd.title = event.target.value;
-    // this.setState({ prod });
   };
 
   componentDidMount() {
