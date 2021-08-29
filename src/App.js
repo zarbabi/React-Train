@@ -19,7 +19,7 @@ import FunctionalRef from "./components/ref/FunctionalRef";
 import UseRef from "./components/ref/useRef";
 import CounterProvider from "./components/Context/CounterProvider";
 import CounterOne from "./components/Context/ConterOne";
-import CountReducer from "./components/Reducer/CountReducer";
+import CountReducerTwo from "./components/Reducer/CountReducerTwo";
 //import Product from "./components/Product/Product";
 class App extends Component {
   constructor(props) {
@@ -113,7 +113,7 @@ class App extends Component {
         <CounterProvider>
           <p>welcome to context </p>
           {/* <CounterOne /> */}
-          <CountReducer />
+          <CountReducerTwo />
         </CounterProvider>
         {/* <UseRef /> */}
         {/* <ClickCounter name="zahra" />
