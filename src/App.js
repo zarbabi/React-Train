@@ -17,10 +17,10 @@ import ParentComp from "./components/PureMemoComp/ParentComp";
 import ClassRef from "./components/ref/ClassRef";
 import FunctionalRef from "./components/ref/FunctionalRef";
 import UseRef from "./components/ref/useRef";
-
-export const UserContext = React.createContext();
-
-export const WebsiteContext = React.createContext();
+import ConterProvider, {
+  CounterContext,
+} from "./components/Context/CounterProvider";
+import CounterOne from "./components/Context/ConterOne";
 //import Product from "./components/Product/Product";
 class App extends Component {
   constructor(props) {
@@ -126,6 +126,10 @@ class App extends Component {
     return (
       // <div className={style.container} id="title">
       <>
+        <ConterProvider>
+          <p>welcome to context </p>
+          <CounterOne />
+        </ConterProvider>
         {/* <UseRef /> */}
         {/* <ClickCounter name="zahra" />
         <HoverCounter /> */}
@@ -134,18 +138,14 @@ class App extends Component {
         </button>
         {this.state.isShow && <FunctionalTimer />} */}
         {/* {this.state.isShow && <ClassTimer />} */}
-        <WebsiteContext.Provider value="example.com">
-          <UserContext.Provider value="zahra">
-            <NavBar totalItems={this.state.products.length} />
+        {/* <NavBar totalItems={this.state.products.length} />
             <ProductList
               prod={this.state.products}
               onDel={this.delHandler}
               onIncerement={this.incHandler}
               onDecrement={this.decHandler}
               onChange={this.changeHandler}
-            />
-          </UserContext.Provider>
-        </WebsiteContext.Provider>
+            /> */}
       </>
       // </div>
     );
@@ -153,94 +153,3 @@ class App extends Component {
 }
 
 export default App;
-
-// const App = () => {
-//   const [products, setproducts] = useState([
-//     { title: "react.js", price: "77$" },
-//     { title: "node.js", price: "98$" },
-//   ]);
-//   //console.log(stateDate);
-//   const clickHandler = () => {
-//     setproducts([
-//       { title: "react.js", price: "7$" },
-//       { title: "node.js", price: "8$" },
-//     ]);
-//   };
-//   return (
-//     <div className="container" id="title">
-//       <h1>shoping app</h1>
-//       <p>prouduct #1 :book 1 </p>
-//       {products.map((product) => {
-//         return <Product name={product.title} price={product.price} />;
-//       })}
-//       <button onClick={clickHandler}>save </button>
-//     </div>
-//   );
-// };
-
-//************************************************************************************************ */
-// class App extends Component {
-//   state = {
-//     products: [
-//       { title: "react.js", price: "77$" },
-//       { title: "node.js", price: "98$" },
-//     ],
-//   };
-
-// clickHandler = () => {
-//   console.log("hi");
-//     this.setState({
-//       products: [
-//         { title: "react.js", price: "60$" },
-//         { title: "node.js", price: "80$" },
-//       ],
-//     });
-//   };
-//   render() {
-//     return (
-//       <div className="container" id="title">
-//         <h1>shoping app</h1>
-//         <p>prouduct #1 :book 1 </p>
-//         {this.state.products.map((product) => {
-//           return <Product name={product.title} price={product.price} />;
-//         })}
-//         <button onClick={this.clickHandler}>save </button>
-//       </div>
-//     );
-//   }
-// }
-
-//************************************************************************************************ */
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="container" id="title">
-//         <h1>shoping app</h1>
-//         <p>prouduct #1 :book 1 </p>
-//         <Product name="react.js" price="100$" />
-//         <Product name="node.js" price="250$" />
-//         <Product name="javaScript" price="200$">
-//           <p> 15% of</p>
-//         </Product>
-//       </div>
-//     );
-//   }
-// }
-// const App = () => {
-//     return (<div className="container" id="title">
-//         <h1>shoping app</h1>
-//         <p>prouduct #1 :book 1 </p>
-//         <Product name ="react.js" price ="100$"/>
-//         <Product name ="node.js" price ="250$"/>
-//         <Product name ="javaScript" price ="200$">
-//             <p> 15% of</p>
-//         </Product>
-//     </div>
-//     )
-
-//    return React.createElement( "div", { id: "title", className: "app-title"},
-//   "this is first app"
-//    );
-//    };
-
-//export default App;
