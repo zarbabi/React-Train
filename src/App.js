@@ -17,10 +17,9 @@ import ParentComp from "./components/PureMemoComp/ParentComp";
 import ClassRef from "./components/ref/ClassRef";
 import FunctionalRef from "./components/ref/FunctionalRef";
 import UseRef from "./components/ref/useRef";
-import ConterProvider, {
-  CounterContext,
-} from "./components/Context/CounterProvider";
+import CounterProvider from "./components/Context/CounterProvider";
 import CounterOne from "./components/Context/ConterOne";
+import CountReducer from "./components/Reducer/CountReducer";
 //import Product from "./components/Product/Product";
 class App extends Component {
   constructor(props) {
@@ -111,10 +110,11 @@ class App extends Component {
     return (
       // <div className={style.container} id="title">
       <>
-        <ConterProvider>
+        <CounterProvider>
           <p>welcome to context </p>
-          <CounterOne />
-        </ConterProvider>
+          {/* <CounterOne /> */}
+          <CountReducer />
+        </CounterProvider>
         {/* <UseRef /> */}
         {/* <ClickCounter name="zahra" />
         <HoverCounter /> */}

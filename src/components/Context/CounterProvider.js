@@ -3,7 +3,7 @@ import React, { useState, useContext } from "react";
 const CounterContext = React.createContext();
 const CounterContextDispatcher = React.createContext();
 
-const ConterProvider = ({ children }) => {
+const CounterProvider = ({ children }) => {
   const [count, setCount] = useState(4);
   return (
     <CounterContext.Provider value={count}>
@@ -14,7 +14,7 @@ const ConterProvider = ({ children }) => {
   );
 };
 
-export default ConterProvider;
+export default CounterProvider;
 
 export const useCount = () => useContext(CounterContext);
 export const useCountAction = () => {
