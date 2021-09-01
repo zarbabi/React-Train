@@ -113,7 +113,7 @@ class App extends Component {
         <CounterProvider>
           <p>welcome to context </p>
           {/* <CounterOne /> */}
-          <CountReducerTwo />
+          <CounterOne />
         </CounterProvider>
         {/* <UseRef /> */}
         {/* <ClickCounter name="zahra" />
