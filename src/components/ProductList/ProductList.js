@@ -4,8 +4,7 @@ import { useProduct, useProductAction } from "../Providers/ProductsProvider";
 
 const ProductList = (props) => {
   const products = useProduct();
-  const { removeHandler, incerementHandler, decrementHandler, changeHandler } =
-    useProductAction();
+  const dispatch = useProductAction();
 
   const renderProduct = () => {
     if (products.length === 0) return <div>there is no product</div>;
@@ -15,10 +14,10 @@ const ProductList = (props) => {
         <Product
           product={product}
           key={product.id}
-          onDel={() => removeHandler(product.id)}
-          onIncerement={() => incerementHandler(product.id)}
-          onDecrement={() => decrementHandler(product.id)}
-          onChange={(e) => changeHandler(e, product.id)}
+          onDel={() => dispatch({ type: "remove", id: product.id })}
+          onIncerement={() => dispatch({ type: "increment", id: product.id })}
+          onDecrement={() => dispatch({ type: "decrement", id: product.id })}
+          onChange={(e) => dispatch({ type: "edit", id: product.id, event: e })}
         />
       );
     });
