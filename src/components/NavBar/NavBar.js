@@ -1,6 +1,8 @@
 import style from "./navBar.module.css";
-
-const NavBar = ({ totalItems }) => {
+import { useProduct } from "../Providers/ProductsProvider";
+const NavBar = () => {
+  const products = useProduct();
+  const totalItems = products.filter((p) => p.quantity > 0).length;
   console.log("NavBar.js render");
   return (
     <header className={style.navBar}>

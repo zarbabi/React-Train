@@ -7,13 +7,15 @@ import ProductList from "./components/ProductList/ProductList";
 import NavBar from "./components/NavBar/NavBar";
 import Wrapper from "./components/hoc/Wrapper";
 import "./App.css";
+import ProductsProvider, {
+  useProduct,
+  useProductAction,
+} from "./components/Providers/ProductsProvider";
 //import Product from "./components/Product/Product";
 
 const App = () => {
-  const [products, setProducts] = useState([
-    { title: "j", price: "100$", id: "1", quantity: "1" },
-    { title: "c", price: "87$", id: "3", quantity: "3" },
-  ]);
+  const products = useProduct();
+  const setProducts = useProductAction();
 
   const removeHandler = (id) => {
     console.log("id :", { id });
@@ -61,14 +63,17 @@ const App = () => {
 
   return (
     <>
-      <NavBar totalItems={products.filter((p) => p.quantity > 0).length} />
-      <ProductList
-        prod={products}
-        onDel={removeHandler}
-        onIncerement={incerementHandler}
-        onDecrement={decrementHandler}
-        onChange={changeHandler}
-      />
+      <ProductsProvider>
+        <>
+          <NavBar />
+          <ProductList
+            onDel={removeHandler}
+            onIncerement={incerementHandler}
+            onDecrement={decrementHandler}
+            onChange={changeHandler}
+          />
+        </>
+      </ProductsProvider>
     </>
   );
 };

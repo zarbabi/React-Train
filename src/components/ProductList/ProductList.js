@@ -1,43 +1,32 @@
-import React, { Component } from "react";
+import React from "react";
 import Product from "../Product/Product";
+import { useProduct } from "../Providers/ProductsProvider";
 
-class ProductList extends Component {
+const ProductList = (props) => {
+  const products = useProduct();
+  const renderHandel = () => {
+    const { onChange, onIncerement, onDecrement, onDel } = props;
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log("ProductList.js componentDidUpdate");
-  }
-  
-  renderHandel = () => {
-    const { prod, onChange, onIncerement, onDecrement, onDel } = this.props;
-
-    if (prod.length === 0) return <div>there is no product</div>;
-    return prod.map((prod) => {
+    if (products.length === 0) return <div>there is no product</div>;
+    return products.map((prod) => {
       return (
         <Product
-          // name={prod.title}
-          // price={prod.price}
-          // quantity={prod.quantity}
-          product={prod}
-          key={prod.id}
-          // click={() => this.clickH("C++")}
-          onDel={() => onDel(prod.id)}
-          onIncerement={() => onIncerement(prod.id)}
-          onDecrement={() => onDecrement(prod.id)}
-          onChange={(e) => onChange(e, prod.id)}
+          product={products}
+          key={products.id}
+          onDel={() => onDel(products.id)}
+          onIncerement={() => onIncerement(products.id)}
+          onDecrement={() => onDecrement(products.id)}
+          onChange={(e) => onChange(e, products.id)}
         />
       );
     });
   };
-  render() {
-    console.log("ProductList.js render");
-    const { prod } = this.props;
-    return (
-      <div>
-        {!prod.length && <div> no Product</div>}
-        {this.renderHandel()}
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      {!products.length && <div> no Product</div>}
+      {renderHandel()}
+    </div>
+  );
+};
 
 export default ProductList;
