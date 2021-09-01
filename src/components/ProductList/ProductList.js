@@ -1,30 +1,33 @@
 import React from "react";
 import Product from "../Product/Product";
-import { useProduct } from "../Providers/ProductsProvider";
+import { useProduct, useProductAction } from "../Providers/ProductsProvider";
 
 const ProductList = (props) => {
   const products = useProduct();
-  const renderHandel = () => {
-    const { onChange, onIncerement, onDecrement, onDel } = props;
+  const { removeHandler, incerementHandler, decrementHandler, changeHandler } =
+    useProductAction();
 
+  const renderProduct = () => {
     if (products.length === 0) return <div>there is no product</div>;
-    return products.map((prod) => {
+
+    return products.map((product, index) => {
       return (
         <Product
-          product={products}
-          key={products.id}
-          onDel={() => onDel(products.id)}
-          onIncerement={() => onIncerement(products.id)}
-          onDecrement={() => onDecrement(products.id)}
-          onChange={(e) => onChange(e, products.id)}
+          product={product}
+          key={product.id}
+          onDel={() => removeHandler(product.id)}
+          onIncerement={() => incerementHandler(product.id)}
+          onDecrement={() => decrementHandler(product.id)}
+          onChange={(e) => changeHandler(e, product.id)}
         />
       );
     });
   };
+
   return (
     <div>
       {!products.length && <div> no Product</div>}
-      {renderHandel()}
+      {renderProduct()}
     </div>
   );
 };
