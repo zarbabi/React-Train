@@ -13,13 +13,26 @@ const options = [
   { value: "XXL", label: "XXL" },
 ];
 
+const sortOptions = [
+  { value: "highest", label: "highest" },
+  { value: "lowest", label: "lowest" },
+];
+
 const Filter = () => {
   const dispatch = useProductAction();
   const [value, setValue] = useState("");
 
+  const [sort, setSort] = useState("");
+
   const changeHandler = (selectedOption) => {
     setValue(selectedOption);
     dispatch({ type: "filter", selectedOption });
+    dispatch({ type: "sort", selectedOption: sort });
+  };
+
+  const sortHandler = (selectedOption) => {
+    dispatch({ type: "sort", selectedOption });
+    setSort(selectedOption);
   };
   return (
     <div className={styles.filter}>
@@ -30,6 +43,13 @@ const Filter = () => {
           value={value}
           onChange={changeHandler}
           options={options}
+          className={styles.select}
+        />
+        <span>sort by</span>
+        <Select
+          value={sort}
+          onChange={sortHandler}
+          options={sortOptions}
           className={styles.select}
         />
       </div>

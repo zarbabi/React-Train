@@ -1,23 +1,22 @@
-
 .filter {
-    display: flex;
-    justify-content: space-between;
-    width: 50rem;
-    align-items: center;
-    margin: 20px 0px;
-  }
-  
-  .select {
-    width: 200px;
-  }
-  
-  .selectedContainer {
-    display: flex;
-    align-items: center;
-  }
-  
-  .selectedContainer span {
-    display: block;
-    margin-right: 1rem;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  width: 50rem;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.select {
+  width: 200px;
+}
+
+.selectedContainer {
+  display: flex;
+  align-items: center;
+}
+
+.selectedContainer span {
+  display: block;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}

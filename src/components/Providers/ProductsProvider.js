@@ -60,6 +60,33 @@ const reducer = (state, action) => {
         return updatedProducts;
       }
     }
+    case "sort": {
+      const value = action.selectedOption.value;
+      const products = [...state];
+      if (value === "lowest") {
+        const sortedProducts = products.sort((a, b) => {
+          if (a.price > b.price) {
+            return 1;
+          }
+          if (a.price < b.price) {
+            return -1;
+          }
+          return 0;
+        });
+        return sortedProducts;
+      } else {
+        const sortedProducts = products.sort((a, b) => {
+          if (a.price < b.price) {
+            return 1;
+          }
+          if (a.price > b.price) {
+            return -1;
+          }
+          return 0;
+        });
+        return sortedProducts;
+      }
+    }
     default:
       return state;
   }
