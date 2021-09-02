@@ -49,6 +49,10 @@ const reducer = (state, action) => {
       updatedProducts[index] = product;
       return updatedProducts;
     }
+    case "filter": {
+      console.log(action.event.target.value);
+      return state;
+    }
     default:
       return state;
   }
