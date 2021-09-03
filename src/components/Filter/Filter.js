@@ -2,8 +2,9 @@ import { useProductAction } from "../Providers/ProductsProvider";
 import { useState } from "react";
 import styles from "./filter.module.css";
 import SelectComponent from "../../common/Select/Select";
+import SearchBar from "../../common/Search/Search";
 
-const options = [
+const filterOptions = [
   { value: "", label: "All" },
   { value: "XS", label: "XS" },
   { value: "S", label: "S" },
@@ -20,12 +21,12 @@ const sortOptions = [
 
 const Filter = () => {
   const dispatch = useProductAction();
-  const [value, setValue] = useState("");
+  const [filter, setFilter] = useState("");
 
   const [sort, setSort] = useState("");
 
-  const changeHandler = (selectedOption) => {
-    setValue(selectedOption);
+  const filterHandler = (selectedOption) => {
+    setFilter(selectedOption);
     dispatch({ type: "filter", selectedOption });
     dispatch({ type: "sort", selectedOption: sort });
   };
@@ -34,15 +35,16 @@ const Filter = () => {
     dispatch({ type: "sort", selectedOption });
     setSort(selectedOption);
   };
+
   return (
     <div className={styles.filter}>
+      <SearchBar filter={filter} />
       <p>filter products based on:</p>
-
       <SelectComponent
         title={"order by size"}
-        value={value}
-        onChange={changeHandler}
-        options={options}
+        value={filter}
+        onChange={filterHandler}
+        options={filterOptions}
       />
       <SelectComponent
         title={"sort by price"}
