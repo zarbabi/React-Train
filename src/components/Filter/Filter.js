@@ -37,20 +37,19 @@ const Filter = () => {
   return (
     <div className={styles.filter}>
       <p>filter products based on:</p>
-      <div className={styles.selectedContainer}>
-        <SelectComponent
-          title={"order by size"}
-          value={value}
-          onChange={changeHandler}
-          options={options}
-        />
-        <SelectComponent
-          title={"sort by price"}
-          value={sort}
-          onChange={sortHandler}
-          options={sortOptions}
-        />
-      </div>
+
+      <SelectComponent
+        title={"order by size"}
+        value={value}
+        onChange={changeHandler}
+        options={options}
+      />
+      <SelectComponent
+        title={"sort by price"}
+        value={sort}
+        onChange={sortHandler}
+        options={sortOptions}
+      />
     </div>
   );
 };
