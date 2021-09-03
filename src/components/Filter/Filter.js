@@ -37,22 +37,24 @@ const Filter = () => {
   };
 
   return (
-    <div className={styles.filter}>
+    <section>
       <SearchBar filter={filter} />
-      <p>filter products based on:</p>
-      <SelectComponent
-        title={"order by size"}
-        value={filter}
-        onChange={filterHandler}
-        options={filterOptions}
-      />
-      <SelectComponent
-        title={"sort by price"}
-        value={sort}
-        onChange={sortHandler}
-        options={sortOptions}
-      />
-    </div>
+      <div className={styles.filter}>
+        <p>filter products based on:</p>
+        <SelectComponent
+          title={"order by size"}
+          value={filter}
+          onChange={filterHandler}
+          options={filterOptions}
+        />
+        <SelectComponent
+          title={"sort by price"}
+          value={sort}
+          onChange={sortHandler}
+          options={sortOptions}
+        />
+      </div>
+    </section>
   );
 };
 
